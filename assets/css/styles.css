@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(../img/textura3.jpg);
+  background-repeat: repeat;
+  background-size: 100% 100%;
+}
+
+.contenedor-principal {
+  width: 100%;
+  height: 100vh;
+}
+
+/*****************************************************************************/
+/* HEADER */
+/*****************************************************************************/
+.titulo {
+  color: #ffff;
+  text-align: center;
+  box-shadow: 1px 1px 5px #edceec;
+  line-height: 40px;
+  background: rgba(17, 15, 15, 0.7);
+  height: 50px;
+  font-family: "Caveat Brush";
+  font-size: 20px;
+}
+
+/*****************************************************************************/
+/* CUADRO DE INGRESO PARA EL JUGADOR */
+/*****************************************************************************/
+
+.contenedor-ventana-ingreso {
+  background: rgba(17, 15, 15, 0.3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+.ventana-ingreso {
+  background: #ffff;
+  width: 55%;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  font-family: "Caveat Brush";
+  color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: 0.5s ease all;
+  transform: scale(0.7);
+}
+.ventana-ingreso .titulo-nombre-jugador {
+  /* font-family:"Caveat Brush"; */
+  font-size: 30px;
+  /*   color: rgba(0, 0, 0, .7); */
+}
+
+.ventana-ingreso .parrafo-nombre-jugador {
+  font-weight: 600;
+  font-size: 18px;
+}
+.ventana-ingreso .ingreso-nombre-jugador {
+  padding: 5px;
+  margin: 5px;
+  width: 45%;
+  border-radius: 100px;
+  border-color: rgba(0, 0, 0, 0.7);
+  outline: none;
+  text-align: center;
+}
+.ventana-ingreso .btn-confirmar {
+  width: 100px;
+  border-radius: 20px;
+  padding: 5px;
+  margin: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+.ventana-ingreso .btn-confirmar:hover {
+  opacity: 0.8;
+  border-color: rgb(9, 7, 7);
+}
+.contenedor-ventana-ingreso.activado {
+  visibility: visible;
+}
+.ventana-ingreso.activado {
+  opacity: 1;
+  transform: scale(1);
+}
+.ingreso-nombre-jugador.jugador-valido {
+  border-color: #2ad714e0;
+}
+
+.ingreso-nombre-jugador.jugador-invalido {
+  border-color: #eb0b0b;
+}
+.mensaje-error {
+  visibility: hidden;
+  color: #eb0b0b;
+  font-family: monospace;
+}
+/*****************************************************************************/
+/* SECTION PRINCIPAL */
+/*****************************************************************************/
+
+.botones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin: 5px;
+}
+.botones button {
+  border-radius: 5px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  color: #edceec;
+  width: 20%;
+  height: 45px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 17px;
+  outline: none;
+  box-shadow: 0px 0px 6px 0px #edceec;
+}
+.botones button:hover{
+  opacity: 0.9;
+}
+.comenzar-juego {
+  background: #2ad714e0;
+}
+.pedir-carta {
+  background: #0000cd;
+}
+.plantarse {
+  background: #eb0b0b;
+}
+.reiniciar {
+  background: #a900d5;
+}
+/* BOTONES DESACTIVADOS */
+.btn-desactivado {
+  opacity: 0.7;
+}
+
+/* ********************************************** */
+.marcador {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  color: #ffff;
+  font-family: "Caveat Brush";
+  font-size: 25px;
+  width: 100%;
+  height: 100px;
+}
+
+.marcador p {
+  color: #ffff;
+  font-family: "Caveat Brush";
+  font-size: 22px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+/*****************************************************************************/
+/* CONTENEDOR DE CARTAS Y JUGADORES */
+/*****************************************************************************/
+
+/* ESTA CLASE ME OCULTA LOS MARCADORES, Y LOS CONTENEDORES DE LO JUGADORES HASTA QUE COMIENCE EL JUEGO */
+.contenedor-activo {
+  visibility: hidden;
+}
+.contenedor-jugadores {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contenedor-jugadores .jugador,
+.contenedor-jugadores .puntaje {
+  font-size: 30px;
+  color: #ffff;
+  margin: 20px 20px;
+  font-family: "Caveat Brush";
+  font-weight: 200;
+}
+.contenedor-jugadores .jugador-persona,
+.contenedor-jugadores .jugador-computadora {
+  width: 88%;
+  padding: 5px;
+  position: relative;
+}
+.contenedor-jugadores .contenedor-cartas {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.contenedor-jugadores .contenedor-cartas img {
+  width: 158px;
+  height: 250px;
+  position: relative;
+  left: 59px;
+  margin-left: -54px;
+}
+
+/*****************************************************************************/
+/* RESPONSIVE */
+/*****************************************************************************/
+
+@media screen and (max-width: 500px) {
+  .ventana-ingreso {
+    width: 85%;
+  }
+
+  .ventana-ingreso .titulo-nombre-jugador {
+    font-size: 25px;
+  }
+  .ventana-ingreso .parrafo-nombre-jugador {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .ventana-ingreso .ingreso-nombre-jugador {
+    padding: 6px;
+    margin: 6px;
+    width: 85%;
+  }
+
+  /* BOTONES DE CONTROL DEL JUEGO */
+  .botones {
+    flex-wrap: wrap;
+  }
+  .botones button {
+    width: 45%;
+    height: 50px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  /* TAMAÑO DE LAS CARTAS */
+  .contenedor-jugadores .contenedor-cartas img {
+    width: 110px;
+    height: 170px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  /* BOTONES DE CONTROL DEL JUEGO */
+  .botones {
+    flex-wrap: wrap;
+  }
+  .botones button {
+    width: 45%;
+    height: 50px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+}
