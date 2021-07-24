@@ -8,43 +8,82 @@
       href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
       rel="stylesheet"
     />
+    <!-- BOOSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- ESTILOS CSS -->
     <link rel="stylesheet" href="assets/css/styles.css" />
     <title>BlackJack</title>
   </head>
   <body>
+    <!-- 
+      CABECERA
+     -->
     <header class="titulo">
-      <h1>BlackJack</h1>
+      <section class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>BlackJack</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+           <ul class="nav botones">
+             <li class="nav-item botones__li">
+               <!-- <a class="nav-link active" aria-current="page" href="#">Active</a> -->
+               <button class="comenzar-juego btn-menu" id="comenzar-juego" title="Comenzar Juego">Comenzar</button>
+             </li>
+             <li class="nav-item botones__li">
+               <!-- <a class="nav-link" href="#">Link</a> -->
+               <button class="pedir-carta btn-desactivado btn-menu" id="pedir-carta" title="Pedir Carta" disabled>Pedir carta</button>
+             </li>
+             <li class="nav-item botones__li">
+               <!-- <a class="nav-link" href="#">Link</a> -->
+               <button class="plantarse btn-desactivado btn-menu" id="plantarse" title="Plantarse" disabled>Plantarse</button>
+             </li>
+             <li class="nav-item botones__li">
+               <button class="reiniciar btn-desactivado btn-menu" id="reiniciar-juego" title="Reiniciar Juego" disabled>Reiniciar</button>
+             </li>
+           </ul>
+          </div>
+        </div>
+      </section>
     </header>
+    <!-- 
+      CONTENIDO DEL SITIO WEB
+     -->
+     <main>
+       <section class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 mt-3">
+            <div class="marcador contenedor-activo" id="marcador-jugador">
+              <h2 class="jugador" id="jugador"></h2>
+              <p id ="puntaje-jugador">Puntaje: 0</p>
+            </div>
+            <!-- CONTENEDOR JUGADOR -->
+            <div class="contenedor-jugadores" id ="contenedor-jugador">
+              <div class="jugador-persona">
+                <div class = "contenedor-cartas" id ="contenedor-cartas-jugador">
+                  <!-- CONTENEDOR DE CARTAS PARA EL JUGADOR -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mt-4">
+            <div class="marcador contenedor-activo" id="marcador-computadora">
+              <h2 class="jugador" id="jugador-computadora">Computadora</h2>
+              <p id ="puntaje-computadora">Puntaje: 0</p>
+            </div>   
+            <div class="contenedor-jugadores" id ="contenedor-jugador">
+              <div class="jugador-computadora" id ="contenedor-computadora">
+                <div class="contenedor-cartas" id = "contenedor-cartas-computadora">
+                  <!-- CONTENEDOR DE CARTAS PARA LA COMPUTADORA -->
+                </div>
+              </div>
+            </div>
+        </div>
+       </section>
+     </main>
     <section class="contenedor-principal">
-      <div class="botones">
-        <button class="comenzar-juego btn-menu" id="comenzar-juego" title="Comenzar Juego">Comenzar Juego</button>
-        <button class="pedir-carta btn-desactivado btn-menu" id="pedir-carta" title="Pedir Carta" disabled>Pedir carta</button>
-        <button class="plantarse btn-desactivado btn-menu" id="plantarse" title="Plantarse" disabled>Plantarse</button>
-        <button class="reiniciar btn-desactivado btn-menu" id="reiniciar-juego" title="Reiniciar Juego" disabled>Reiniciar</button>
-      </div>
-
-      <!-- CONTENEDOR PARA LOS MARCADORES DE LOS JUGADOORES -->
-      <div class="marcador contenedor-activo" id ="marcador">
-        <h4>Marcador</h4>
-        <p id ="puntaje-jugador">Jugador: 0</p>
-        <p id ="puntaje-computadora">Computadora: 0</p>
-      </div>
-              <!-- CONTENEDOR DE CARTAS - JUGADOR -->
-      <div class="contenedor-jugadores contenedor-activo" id ="contenedor-jugador">
-        <div class="jugador-persona">
-          <h4 class="jugador" id = "jugador"></h4>
-          <div class = "contenedor-cartas" id ="contenedor-cartas-jugador">
-            <!-- CONTENEDOR DE CARTAS PARA EL JUGADOR -->
-          </div>
-        </div>
-                <!-- CONTENEDOR DE CARTAS - COMPUTADORA -->
-        <div class="jugador-computadora contenedor-activo" id ="contenedor-computadora">
-          <h4 class="jugador" id="jugador-computadora" hidden>Computadora</h4>
-          <div class="contenedor-cartas" id = "contenedor-cartas-computadora">
-            <!-- CONTENEDOR DE CARTAS PARA LA COMPUTADORA -->
-          </div>
-        </div>
-      </div>
 
       <!-- VENTANA DE INGRESO PARA EL NOMBRE DEL JUGADOR -->
       <div class="contenedor-ventana-ingreso" id="contenedor-ventana-ingreso">

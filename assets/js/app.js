@@ -14,6 +14,8 @@
   let btnPlantarse = document.querySelector( "#plantarse" ); // boton para plantarse
 
   /* CONTENEDORES DE PUNTAJES */
+  const marcador_jugador = document.querySelector("#marcador-jugador");
+  const marcador_computadora = document.querySelector("#marcador-computadora");
   let jugador = document.querySelector("#puntaje-jugador");
   let computadora = document.querySelector('#puntaje-computadora');
 
@@ -121,7 +123,6 @@
 
     /* CONTENEDOR DEL JUGADOR */
     let contenedor_jugadores = document.querySelector("#contenedor-jugador");
-    let marcador = document.querySelector("#marcador");
     let jugador = document.querySelector("#jugador");
 
     /*****  AGREGO LA CLASE DE ACTIVADO A LOS CONTENEDORES PARA INGRESAR EL NOMBRE DEL JUGADOR     *****/
@@ -153,7 +154,7 @@
         ventana_ingreso.classList.remove("activado");
 
         jugador.innerText = `${jugadorValido}`;
-        marcador.classList.remove("contenedor-activo");
+        marcador_jugador.classList.remove("contenedor-activo");
         contenedor_jugadores.classList.remove("contenedor-activo");
         btnComenzar.classList.add("btn-desactivado");
       });
@@ -186,9 +187,9 @@
         boton.addEventListener("click",() => {
           mazoCartas = [];
           puntajes = [0,0];
-          jugador.innerText = `Jugador: 0`;
-          computadora.innerText = `Computadora: 0`;
-          titulo_computadora.setAttribute("hidden","");
+          jugador.innerText = `Puntaje: 0`;
+          computadora.innerText = `Puntaje: 0`;
+          marcador_computadora.classList.add("contenedor-activo");
             /* CONTENEDORES DE CARTAS */
           document.querySelectorAll(".contenedor-cartas").forEach((contenedoresDeCartas) => {
             contenedoresDeCartas.innerHTML = "";
@@ -209,7 +210,7 @@
     let carta = pedirCarta(arrMazoCartas);
     let valorCarta = carta.substr(0, carta.length - 1);
     let puntajeJugador = acumularPuntajes(0, arrPuntajes, valorCarta);
-    jugador.innerText = `Jugador: ${puntajeJugador}`;
+    jugador.innerText = `Puntaje: ${puntajeJugador}`;
     imprimirCarta(carta,0);
 
     if (puntajeJugador > 21) {
@@ -265,6 +266,7 @@
               btnPlantarse.classList.add('btn-desactivado');
               btnPedirCarta.setAttribute('disabled',"");
               btnPedirCarta.classList.add('btn-desactivado');
+              marcador_computadora.classList.remove("contenedor-activo");
               turnoComputadora(arrMazoCartas,arrPuntajes);
             }
           },1000);
@@ -275,11 +277,10 @@
 
     /*****    TURNO DE LA COMPUTADORA    ******/
   const turnoComputadora = (arrMazoCartas, arrPuntajes) => {
-    /* let puntajeComputadora = document.querySelector("#puntaje-computadora"); */
     let carta = pedirCarta(arrMazoCartas);
     let valorCarta = carta.substr(0,carta.length-1);
     let puntajeComputadora = acumularPuntajes( 1,arrPuntajes,valorCarta );
-    computadora.innerText = `Computadora: ${puntajeComputadora}`;
+    computadora.innerText = `Puntaje: ${puntajeComputadora}`;
     titulo_computadora.removeAttribute("hidden");
     imprimirCarta(carta,1);
 

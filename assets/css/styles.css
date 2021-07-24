@@ -3,9 +3,7 @@
   padding: 0;
 }
 body {
-  background-image: url(../img/textura3.jpg);
-  background-repeat: repeat;
-  background-size: 100% 100%;
+  background: url(../img/textura3.jpg) center/100% 100% no-repeat fixed;
 }
 
 .contenedor-principal {
@@ -22,9 +20,9 @@ body {
   box-shadow: 1px 1px 5px #edceec;
   line-height: 40px;
   background: rgba(17, 15, 15, 0.7);
-  height: 50px;
   font-family: "Caveat Brush";
   font-size: 20px;
+  padding: 20px 0;
 }
 
 /*****************************************************************************/
@@ -56,9 +54,7 @@ body {
   transform: scale(0.7);
 }
 .ventana-ingreso .titulo-nombre-jugador {
-  /* font-family:"Caveat Brush"; */
   font-size: 30px;
-  /*   color: rgba(0, 0, 0, .7); */
 }
 
 .ventana-ingreso .parrafo-nombre-jugador {
@@ -112,37 +108,35 @@ body {
 
 .botones {
   display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-  margin: 5px;
+  flex-wrap: wrap;
+  padding: 5px 5px;
+}
+.botones__li{
+  width: 25%;
 }
 .botones button {
   border-radius: 5px;
   margin: 5px;
   border: none;
   cursor: pointer;
-  color: #edceec;
-  width: 20%;
-  height: 45px;
+  color: #fff;
+  width: 90%;
+  padding: 5px 5px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 17px;
+  font-size: 1rem;
   outline: none;
   box-shadow: 0px 0px 6px 0px #edceec;
 }
 .botones button:hover{
+  transition: .6s all ease;
   opacity: 0.9;
+  transform: scale(.9,.9);
 }
-.comenzar-juego {
-  background: #2ad714e0;
-}
-.pedir-carta {
-  background: #0000cd;
-}
-.plantarse {
-  background: #eb0b0b;
-}
+.comenzar-juego,
+.pedir-carta,
+.plantarse,
 .reiniciar {
-  background: #a900d5;
+  background: rgba(17, 15, 15, 0.7);
 }
 /* BOTONES DESACTIVADOS */
 .btn-desactivado {
@@ -152,14 +146,11 @@ body {
 /* ********************************************** */
 .marcador {
   display: flex;
-  flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
   color: #ffff;
   font-family: "Caveat Brush";
-  font-size: 25px;
-  width: 100%;
-  height: 100px;
+  text-transform: capitalize;
 }
 
 .marcador p {
@@ -196,27 +187,48 @@ body {
 }
 .contenedor-jugadores .jugador-persona,
 .contenedor-jugadores .jugador-computadora {
-  width: 88%;
+  width: 90%;
   padding: 5px;
   position: relative;
 }
 .contenedor-jugadores .contenedor-cartas {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  animation: aparicion .2s linear;
 }
 .contenedor-jugadores .contenedor-cartas img {
-  width: 158px;
-  height: 250px;
-  position: relative;
   left: 59px;
   margin-left: -54px;
+  position: relative;
+  width: 110px;
+  animation: aparacion .3s ease;
 }
-
+@keyframes aparacion{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
 /*****************************************************************************/
 /* RESPONSIVE */
 /*****************************************************************************/
 
+@media screen and (max-width: 620px){
+
+  .botones{
+    justify-content: center;
+  }
+  .botones__li{
+    width: 50%;
+  }
+  .botones button {
+    padding: 0px 5px;
+    font-size: .8rem;
+  }
+}
 @media screen and (max-width: 500px) {
   .ventana-ingreso {
     width: 85%;
@@ -235,21 +247,11 @@ body {
     width: 85%;
   }
 
-  /* BOTONES DE CONTROL DEL JUEGO */
-  .botones {
-    flex-wrap: wrap;
-  }
-  .botones button {
-    width: 45%;
-    height: 50px;
-    font-weight: 600;
-    font-size: 16px;
-  }
 
   /* TAMAÑO DE LAS CARTAS */
   .contenedor-jugadores .contenedor-cartas img {
-    width: 110px;
-    height: 170px;
+    width: 90px;
+    height: 140px;
   }
 }
 
@@ -259,9 +261,8 @@ body {
     flex-wrap: wrap;
   }
   .botones button {
-    width: 45%;
-    height: 50px;
+    width: 95%;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
   }
 }
